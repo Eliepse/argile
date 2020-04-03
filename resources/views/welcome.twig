@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>{{ name }}</title>
+	<link rel="stylesheet" href="{{ webpack("css/styles.css") }}" type="text/css">
+</head>
+<body>
+{% include "components/navigation.twig" %}
+<main>
+	<h1>{{ name }}</h1>
+</main>
+{% include "components/footer.twig" %}
+<script src="{{ webpack("js/index.js") }}"></script>
+</body>
+</html>
