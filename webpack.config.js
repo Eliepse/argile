@@ -7,6 +7,8 @@ const MinifyJsPlugin = require("babel-minify-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 
+const entries = {};
+const moduleScss = [];
 const plugins = [];
 
 module.exports = (env, argv) => {

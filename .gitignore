@@ -2,7 +2,8 @@
 /vendor/
 /logs/*
 /node_modules/
-/storage/cache/*
+/storage/framework/*
+/storage/logs/*
 /public/css
 /public/js
 /public/img

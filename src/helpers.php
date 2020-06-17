@@ -2,6 +2,9 @@
 /** @noinspection PhpUnhandledExceptionInspection */
 
 use App\App;
+use Fig\Http\Message\StatusCodeInterface;
+use Slim\Flash\Messages;
+use Slim\Psr7\Response;
 
 if (!function_exists("env")) {
 	/**
@@ -12,7 +15,26 @@ if (!function_exists("env")) {
 	 */
 	function env(string $key, $default = null)
 	{
-		return getenv($key) ?? $default;
+		if (!isset($_ENV[ $key ])) {
+			return $default;
+		}
+
+		$value = getenv($key);
+
+		switch (strtolower($value)) {
+			case 'true':
+				return true;
+			case 'false':
+				return false;
+			case 'null':
+				return null;
+		}
+
+//		if (Str::startsWith($value, '"') && Str::endsWith($value, '"')) {
+//			return substr($value, 1, -1);
+//		}
+
+		return $value;
 	}
 }
 
@@ -50,9 +72,57 @@ if (!function_exists('webpack')) {
 }
 
 if (!function_exists("view")) {
-	function view(string $name, array $values = []): string
+	function view(string $name, array $values = []): Response
 	{
-		$name .= pathinfo($name, PATHINFO_EXTENSION) ?: ".twig";
-		return app()->getTwigEnvironment()->render($name, $values);
+		$engine = App::getInstance()->getTemplateEngine();
+		$name .= pathinfo($name, PATHINFO_EXTENSION) ?: ".view";
+		$response = new Response(StatusCodeInterface::STATUS_OK);
+
+		foreach ($values as $key => $value) {
+			$engine->addGlobal($key, $value);
+		}
+
+		$response->getBody()->write($engine->render($name));
+		return $response;
+	}
+}
+
+if (!function_exists('flash')) {
+	function flash(): Messages
+	{
+		return App::getInstance()->getApp()->getContainer()->get(Messages::class);
+	}
+}
+
+if (!function_exists('errors')) {
+	function errors(string $key): array
+	{
+		$all_errors = flash()->getFirstMessage("errors");
+
+		if (empty($all_errors))
+			return [];
+
+		if (!isset($all_errors[ $key ]))
+			return [];
+
+		$key_errors = $all_errors[ $key ];
+
+		if (empty($key_errors))
+			return [];
+
+		return is_array($key_errors) ? $key_errors : [$key_errors];
+	}
+}
+
+if (!function_exists("old")) {
+	/**
+	 * @param string $key
+	 * @param mixed|string|null $default
+	 *
+	 * @return mixed|string|null
+	 */
+	function old(string $key, $default = null)
+	{
+		return flash()->getFirstMessage("old.$key", $default);
 	}
 }
