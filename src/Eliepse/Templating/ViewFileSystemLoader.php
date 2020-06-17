@@ -2,7 +2,7 @@
 
 namespace Eliepse\Templating;
 
-use App\App;
+use Eliepse\App;
 use Symfony\Component\Templating\Loader\FilesystemLoader;
 use Symfony\Component\Templating\Storage\FileStorage;
 use Symfony\Component\Templating\Storage\Storage;

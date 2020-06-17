@@ -2,7 +2,7 @@
 declare(strict_types=1);
 mb_internal_encoding("UTF-8");
 
-use App\App;
+use Eliepse\App;
 use Eliepse\Http\Middleware\ContentSecurityPolicyMiddleware;
 use Eliepse\Http\Middleware\FlashFormInputsMiddleware;
 use Eliepse\Http\Middleware\JsonBodyParserMiddleware;

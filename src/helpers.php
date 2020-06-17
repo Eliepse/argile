@@ -1,7 +1,7 @@
 <?php
 /** @noinspection PhpUnhandledExceptionInspection */
 
-use App\App;
+use Eliepse\App;
 use Fig\Http\Message\StatusCodeInterface;
 use Slim\Flash\Messages;
 use Slim\Psr7\Response;

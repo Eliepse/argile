@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Eliepse;
 
 use Doctrine\Common\Cache\PhpFileCache;
 use Eliepse\Templating\ViewFileSystemLoader;
@@ -108,7 +108,7 @@ class App
 
 	public function root(string $path = ""): string
 	{
-		return __DIR__ . '/../' . $path;
+		return __DIR__ . '/../../' . $path;
 	}
 
 
