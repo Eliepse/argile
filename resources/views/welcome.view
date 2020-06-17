@@ -5,7 +5,7 @@
 	<title>{{ env('META_TITLE') }}</title>
 	{% include "components/head.view" %}
 </head>
-<body>
+<body class="welcome">
 <main>
 	<h1>{{ env('META_TITLE') }}</h1>
 </main>
