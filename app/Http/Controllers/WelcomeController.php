@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Psr\Http\Message\ResponseInterface as Response;
+use Eliepse\Argile\Http\Responses\ViewResponse;
+use Psr\Http\Message\ResponseInterface;
 
 class WelcomeController
 {
-	public function __invoke(): Response
+	public function __invoke(): ResponseInterface
 	{
-		return view("welcome", ["page" => "welcome"]);
+		return new ViewResponse("welcome", ["page" => "welcome"]);
 	}
 }

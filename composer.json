@@ -10,12 +10,8 @@
         "symfony/var-dumper": "^v5.2.6"
     },
     "autoload" : {
-        "files" : [
-            "src/helpers.php"
-        ],
         "psr-4" : {
-            "App\\" : "app",
-            "Eliepse\\" : "src/Eliepse"
+            "App\\" : "app"
         }
     },
     "scripts" : {
