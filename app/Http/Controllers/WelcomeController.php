@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Eliepse\Argile\Http\Controllers\BuildtimeController;
 use Eliepse\Argile\Http\Responses\ViewResponse;
 use Psr\Http\Message\ResponseInterface;
 
-class WelcomeController
+class WelcomeController implements BuildtimeController
 {
 	public function __invoke(): ResponseInterface
 	{
