@@ -5,6 +5,7 @@ Styles for the welcome page
 .welcome main {
 	display: flex;
 	height: 100vh;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 }
@@ -12,4 +13,5 @@ Styles for the welcome page
 .welcome h1 {
 	font-weight: normal;
 	font-size: 4em;
+	margin-bottom: .5em;
 }

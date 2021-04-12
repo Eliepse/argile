@@ -7,8 +7,9 @@
 </head>
 <body class="welcome">
 <main>
-	<h1>{{ env('META_TITLE') }}</h1>
+	<h1>Argile</h1>
+	<p>A little homemade framework by @eliepse</p>
 </main>
-<script src="{{ webpack("js/index.js") }}"></script>
+<script src="{{ webpack("js/index.js", "") }}"></script>
 </body>
 </html>

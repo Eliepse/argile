@@ -1,27 +1,20 @@
 {
+    "name" : "eliepse/argile",
+    "description" : "",
     "require" : {
-        "php" : "^7.4",
-        "ext-json" : "*",
-        "slim/slim" : "^4.0",
-        "slim/psr7" : "^1.0",
-        "vlucas/phpdotenv" : "^4.1",
-        "slim/flash": "^0.4.0",
-        "php-di/slim-bridge": "^3.0",
-        "middlewares/php-session": "^1.2",
-        "doctrine/cache": "^1.10",
-        "symfony/templating": "^5.0",
-        "monolog/monolog": "^2.0"
+        "php" : "^8.0",
+        "eliepse/argile-framework": "^0.4",
+        "slim/flash": "^0.4.0"
     },
     "require-dev": {
-        "symfony/var-dumper": "^5.0"
+        "symfony/var-dumper": "^v5.2.6"
     },
     "autoload" : {
         "files" : [
             "src/helpers.php"
         ],
         "psr-4" : {
-            "App\\" : "app",
-            "Eliepse\\" : "src/Eliepse"
+            "App\\" : "app"
         }
     },
     "scripts" : {

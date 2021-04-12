@@ -1,5 +1,6 @@
 <?php
 
 use App\Http\Controllers\WelcomeController;
+use Eliepse\Argile\Http\Router;
 
-$router->get('/', WelcomeController::class);
+Router::get('/', WelcomeController::class);
