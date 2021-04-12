@@ -3,7 +3,7 @@
     "description" : "",
     "require" : {
         "php" : "^8.0",
-        "eliepse/argile-framework": "^0.3",
+        "eliepse/argile-framework": "^0.4",
         "slim/flash": "^0.4.0"
     },
     "require-dev": {
